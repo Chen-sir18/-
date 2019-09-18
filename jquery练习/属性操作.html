@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			a{
+				cursor: pointer;
+			}
+			.dom-lists{
+				display: none;
+			}
+			.dom-lists.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<a class="dom-title">文档title</a>
+			<ul class="dom-lists">
+				<li>123</li>
+				<li>321</li>
+				<li>456</li>
+				<li>654</li>
+				<li>789</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		
+		$(".dom-title").click(function(){
+			
+			var domList = $('.dom-lists')
+			//attr(属性名    [，value])  给标签添加属性  值为value
+			//只传属性时为获取    []表示可传可不传
+			domList.attr('class','show')
+			
+			//var domList = $('.dom-lists')
+			//toggleClass(class)  元素有class  类名是移除这个类名  没有就添加类名
+			//domList.toggleClass('show')
+			
+			//domList.hasClass('show')  判断元素上是否有show这个类名
+//			if (domList.hasClass('show')) {
+//				domList.removeClass('show')
+//				
+//			}else{
+//				$('.dom-lists').addClass('show')
+//
+//			}
+			
+						
+			
+			
+		})
+		
+		
+		
+	</script>
+</html>

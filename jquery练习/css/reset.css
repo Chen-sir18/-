@@ -1,0 +1,36 @@
+/*重置浏览器默认样式*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;  /*边框不向外扩张，内容不超出盒子大小*/
+}
+body{
+	min-width: 1200px;  /*最小宽度*/
+	font-size: 12px;
+	color: #333;
+	font-family: "微软雅黑",arial;	
+}
+.content{
+	width: 1200px;
+	/*左右居中*/
+	margin: 0 auto;
+}
+input{
+	border: 1px solid #ccc;
+}
+li{
+	list-style: none;
+}
+
+/*去掉输入框的聚焦边框颜色*/
+:focus{
+	outline: none;   /*外边框*/
+}
+ /*超链接*/
+.sup:link{   /*未访问时*/
+	text-decoration: none;
+	color: #333;
+}
+.sup:hover{   /*鼠标悬停时*/
+	color: #FF2D52;
+}

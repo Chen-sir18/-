@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		var person = {
+			name: 'zhangsan',
+			hair: 'black',
+			eyes: 'blue',
+			girlfriend: 'suli',
+			age: 22,
+			sex:'nan'
+		}
+		Object.defineProperty(person,'name',{
+			writable:false  //false不能被更改   true可以
+		})
+		Object.defineProperty(person,'girlfriend',{
+			enumerable:false   //false不能被遍历出来  true可以
+		})
+		Object.defineProperty(person,'sex',{
+			configurable:false     //false不能被删  true可以
+		})
+		person.name = 'wangmazi'
+		
+		for(var prop in person){
+			console.log(prop)
+		}
+		person.age = -1
+		person.age = 2000
+		console.log(person)
+	</script>
+</html>

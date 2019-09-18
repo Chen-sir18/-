@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		//工具  帮助做一些事情  全局都可以用
+		//$.type(判断类型的变量)
+		console.log($.type($))
+		
+		//$（）类型
+		
+		console.log($.type($()))
+		console.log($('div'))
+		console.log($.type($('div')))
+		
+		//循环对象
+//		$('div').map(function(index,item){
+//			console.log(index,item)
+//			
+//			console.log($(item))
+//		})
+//		
+//		var arr = [1,2,3,4,5]
+		//$.each(遍历的对象， 回调函数  function（下标，当前下标的元素）{})
+		//$.each(遍历数组 ，回调函数function(属性名，属性值))
+//		$.each(arr, function(index,item) {
+//			console.log(index,item)
+//		});
+//		
+//		$.each($('div'),function(index,item){
+//			console.log(index,$(item).text())
+//		})
+//		
+//		var obj = {
+//			a:1,
+//			b:2,
+//			c:3
+//		}
+//		$.each(obj, function(attr,value) {
+//			console.log(attr,value)
+//		});
+
+		var obj = {
+			name:'chenlong',
+			age:23,
+			sex:'nan',
+			min:function(a,b){
+				return a<b
+			}
+		}
+		
+		var obj2 = {
+			name:'chenlong',
+			sex:'nan',
+			hoby:'1234'
+		}
+		
+		var obj3 = {
+			name:'lisi',
+			address:'贵州'
+		}
+		//$.extend  合并对象  将后面的对象合并到第一个对象上
+		//同样属性的值会被后面的覆盖，没有会追加属性
+		//当$.extend只有一个参数的时候 往$上合并
+		//运动$.extend  可以往jquery上追加工具
+		$.extend(obj);
+		
+		var arr = [1,2,3]
+		var arr2 = [2,3,4]
+		
+		var div1 = $("div:gt(1)")
+		
+		var  div2 = $("div:lt(3)")
+		
+		$.merge(div1,div2) //只能传2个参数
+		console.log(div1,div2)
+		
+		$.unique(div1)
+		console.log(div1)
+		
+		//通过$.map()将对象值转为数组
+		var result = $.map(obj2, function(index,item) {
+			return index
+		});
+		
+		var obj = {}  //对象有值为false  没有值为true
+		console.log($.isEmptyObject(obj))
+		
+	</script>
+</html>

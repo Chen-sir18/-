@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="js/ajax.js"></script>
+	<script>
+		//promise
+		//解决异步的一个方案  ajax
+		
+		//resolve   reject都是方法：两个回调方法
+		//resolve   保存异步成功的数据
+		//reject    保存异步失败的数据
+		let p = new Promise(function(resolve,reject){
+			//假设一个异步返回
+			let a = 6
+			if (a <= 1) {
+				resolve({
+					success: true,
+					data:{
+						a:a,
+						b:1
+					}
+				})
+			}else{
+				reject({
+					success:false
+				})
+			}
+	
+		})
+		
+		//then 表示成功的回调   result接收成功的值
+		p.then(function(r){
+			console.log(r)
+		}).catch(function(e){
+			console.log(e)
+		})
+		
+		
+	</script>
+</html>

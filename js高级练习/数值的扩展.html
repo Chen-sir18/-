@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//bineary    2的n-1次方  *  当前数组
+		let a = 0b111
+		console.log(a)
+		
+		//octal  8的n-1次方  *当前数组   8*8*7+8*7*7
+		let b = 0o777
+		console.log(b)
+		
+		//16*16*6+16*6+6
+		let c = 0x666
+		console.log(c,16*16*6+16*6+6)
+		//判断数字是否是有限的数值
+		console.log(Number.isFinite(Infinity))
+		//isNaN  判断数字是否为NaN类型
+		console.log(Number.isNaN(123))
+		//判断是否为数值
+		console.log(Number.isInteger(NaN))
+		
+		//Math.pow(2,53)-1
+		console.log(Number.MAX_INTEGER) //计算机最大计数
+		console.log(Number.MAX_INTEGER)//计算机最小计数
+		
+		console.log(Number.isSafeInteger(Number.MIN_SAFE_INTEGER-1))
+		
+		
+	</script>
+</html>

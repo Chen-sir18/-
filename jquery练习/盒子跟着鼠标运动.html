@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 800px;
+				height: 600px;
+				background: beige;
+			}
+			.move{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+			<div class="move">
+				
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		$('.move').mousemove(function(event){
+			var pageX = event.pageX
+			var pageY = event.pageY
+			
+			var offsetX = $('.box').offset().left
+			var offsetY = $('.box').offset().top
+			
+			 var height = $('.move').outerHeight()
+			 var width = $('.move').outerWidth()
+			 
+			 var boxHeight = $('.box').outerHeight()
+			 var boxWidth = $('.box').outerWidth()
+			 
+			 var positionX = pageX - offsetX - width/2
+			 var positionY = pageY - offsetY -height/2
+			//三木运算   就是三元运算    条件？条件成立的值    ：  条件不成立的值
+			 positionX = positionX > 0?positionX: 0;
+			 positionY = positionY > 0?positionY: 0;
+			 
+			 positionX = positionX > (boxWidth - width)? boxWidth-width:positionX;
+			  positionY = positionY > (boxHeight - height)? boxHeight-height:positionY;
+			 
+			$('.move').css({
+				left: positionX,
+				top: positionY
+			})
+		})
+		
+		// stopPropagation()阻止冒泡    阻止move的冒泡  
+		$('.move').mousemove(function(event){
+			event.stopPropagation()
+		})
+		
+		
+	</script>
+</html>

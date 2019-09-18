@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--提交删除练习-->
+		<!--<input type="text" />
+		<button class="submit">提交</button> 
+		<button>清空</button>
+		<ul class="lists">
+			<li>第一个       <a class="delete">删除</a></li>
+			<li>第一个       <a class="delete">删除</a></li>
+			<li>第一个       <a class="delete">删除</a></li>
+		</ul>-->
+		
+		<!--本地存储练习-->
+		<div>
+			姓名：<input name="name" type="text" />
+		</div>
+		<div>
+			年龄：<input name="age" type="number" />
+		</div>
+		<div>
+			电话：<input name="tel" type="number" />
+		</div>
+		<div>
+			邮箱：<input name="eml" type="text" />
+		</div>
+		<div>
+			身份证：<input name="idCade" type="text" />
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+//		本地存储练习
+
+
+		//定义一个空对象临时装input框的值
+		var info = {
+			
+		}
+		
+		//将刚刚存储到Storage中的数据获取出来string
+		var infoStr = window.localStorage.getItem('info');
+		if(infoStr) {   //判断infoStr有没有info中的数据有才执行
+			//将字符串转换为对象
+			info = JSON.parse(infoStr)
+			
+			//循环对象
+			for (var attr in info) {
+	//			debugger   控制台断点测试的
+				var oInput = document.querySelector('[name='+attr+']')//获取info的name在attr中再赋给新的name
+				oInput.value = info[attr]  //input框的值为info中attr对应的name 下的 input框
+			}
+		}
+		//获取input框为数组
+		var aInput = document.querySelectorAll('input');
+		//循环数组
+		for (var i = 0;i<aInput.length;i++) {
+			
+			aInput[i].onblur = function(){   //onblur失去焦点
+				//获取当前input 的  value值　　   或者value值为  ''
+				var value = this.value || ''
+
+				//用getAttribute获取name属性  获取出来的name相当于info中的属性
+				var name = this.getAttribute('name');
+				//info['age']= value
+				info[name] = value;  //input框数据等于对应的name存储在info中
+				window.localStorage.setItem('info',JSON.stringify(info));  //将获取到input框的数据存储到Storage中
+			}			
+		}
+		
+		
+//		<!--提交删除练习-->
+
+			//点击删除时 删除当前父节点li
+			//获取所有a标签
+//			var aList = document.querySelectorAll('.delete');
+//			var listParent = document.querySelector('.lists');
+//			//点击提交input中的内容作为列表的元素添加到ul的最后
+//			var btnSubmit = document.querySelector('.submit');
+//			btnSubmit.onclick = function(){
+//				//获取input框
+//				var OInput = document.querySelector('input')
+//				
+//				//获取input框value值
+//				if (!OInput.value) {
+//					alert('请输入内容');
+//					
+//					//结束当前函数   不往后执行
+//					return;
+//				}
+//				
+//				//创建li标签  createElement
+//				var oLi = document.createElement('li')
+//				
+//				oLi.innerHTML = OInput.value + ' <a class="delete">删除</a>';
+//				//appendChild将一个元素oLi添加到另一个元素listParent  的最后
+//				listParent.appendChild(oLi)
+//				
+//				OInput.value = '';
+//				
+//			}
+//
+//			for (var i=0;i<aList.length;i++) {
+//				aList[i].onclick = function() {
+//					//找到当前a标签的父级li，删除当前的li标签
+//					var oLi = this.parentNode
+//					
+//					listParent.removeChild(oLi);
+//					
+//				}
+//			}
+
+
+
+
+
+	</script>
+	<script src="js/ajax.js">
+		
+	</script>
+</html>

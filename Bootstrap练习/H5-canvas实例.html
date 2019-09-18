@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+	</body>
+	<script>
+		//1.获取canvas  并设置宽高
+		let canvas = document.querySelector("#canvas")
+		canvas.width = window.innerWidth
+		canvas.height = window.innerHeight
+		
+		//2.创建2d画布
+		let ctx = canvas.getContext('2d')
+		
+		//存储移动时添加的圆  为了让圆存储并调用圆形    中的  添加圆以及移动
+		let circleArr = []
+		//3.定义构造函数
+		function Circle(options){
+			//将传入的参数存入this中
+			for(let prop in options){
+				this[prop] = options[prop]
+			}
+			
+			this.dotX = Math.random()*12-7
+			this.dotY = Math.random()*12-7
+			
+			this.color = "rgb("+ (parseInt(Math.random()*240 )+9 ) +","+(parseInt(Math.random()*220 )+1 )+",203)";
+			
+			circleArr.push(this)
+		}
+		
+		//绘制圆
+		Circle.prototype.addCir = function(){
+			
+			//开始路径绘制
+			ctx.beginPath()
+			
+			//绘制圆
+			ctx.arc(this.x,this.y,this.r,0,Math.PI*2)
+			
+			ctx.fillStyle = this.color
+			
+			ctx.fill()
+			
+			
+		}
+		Circle.prototype.animate = function(){
+			
+			this.x += this.dotX
+			this.y += this.dotY
+			this.r--
+			if (this.r <= 0) {
+				//清除r小于0的对象
+				for (let i=0;i<circleArr.length;i++) {
+					if (circleArr[i]===this) {
+						//删除与当前对象相等的数组元素splice
+						circleArr.splice(i,1)
+					}
+				}
+			}
+		}
+		
+		//添加鼠标移动事件 
+		canvas.onmousemove = function(e){
+			new Circle({
+				x: e.offsetX,
+				y: e.offsetY,
+				r: 30
+			})
+		}
+		
+		
+//		let a = new Circle({
+//			x: 200,
+//			y: 200,
+//			r: 20
+//		})
+		
+		//设置一个定时器
+		setInterval(()=>{
+			//清空画布
+			ctx.clearRect(0,0,window.innerWidth,window.innerHeight)
+			//往画布添加圆
+			for (let i=0;i<circleArr.length-1;i++) {
+				circleArr[i].animate()
+				circleArr[i].addCir()
+			}
+		},20)
+		
+		
+		
+		
+	</script>
+</html>

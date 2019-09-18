@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" name="gender" value="nv"/>女
+		<input type="checkbox" checked name="gender" value="nan"/>男
+		<div>
+			<input type="text"disabled />
+		</div>
+		<div>
+			<input type="text" />
+		</div>
+		<select>
+			<option>1</option>
+			<option>2</option>
+			<option selected="selected">3</option>
+			<option>4</option>
+		</select>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript">
+		//checked   表单对象选择器  单选框  复选框选中的元素
+		console.log($("[type=checkbox]:checked").val())
+		//:selected  下拉框选中的option
+		console.log($("option:selected").val())
+		//获取不可编辑表单
+		console.log($(":disabled"))
+		//除了不可编辑的都选中
+		console.log($(":enabled"))
+		
+	</script>
+</html>

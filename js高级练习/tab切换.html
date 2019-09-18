@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			.tab-box button{
+				padding: 8px 10px;
+				background: #fff;
+				color: #000;
+				border: 1px solid #e2e2e2;
+				outline: none;
+			}
+			.tab-box button.on{
+				background: #ff2d52;
+			}
+			.tab-list {
+				display: none;
+			}
+			.tab-list.on{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="tab-box">
+			<div>
+				<button class="tab-title on">按钮1</button>
+				<button class="tab-title">按钮2</button>
+				<button class="tab-title">按钮3</button>
+			</div>
+			<div>
+				<div  class="tab-list on">1</div>
+				<div  class="tab-list ">2</div>
+				<div  class="tab-list ">3</div>
+			</div>
+			
+		</div>
+		
+	</body>
+	<script src="js/tab.js"></script>
+	<script>
+		new TabEample({
+			box: '.tab-box'
+		})
+	</script>
+</html>

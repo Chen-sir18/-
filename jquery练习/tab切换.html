@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.tab-title{
+				padding: 5px 10px;
+				background: #f7f7f7;
+				border: 1px solid #E2E2E2;
+				border-radius: 5px;
+				font-size: 12px;
+			}
+			.tab-title.on{
+				background: #ffcc00;
+				border-color: #ffcc00;
+				color: #Fff;
+			}
+			.tab-lists{
+				width:400px;
+				height: 200px;
+				border: 1px solid #e2e2e2;
+				padding: 0;
+				list-style: none;
+				display: none;
+			}
+			.tab-lists.on{
+				display: block;
+			}
+			ul{
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tab-box">
+			<div >
+				<a class="tab-title on">按钮一</a>
+				<a class="tab-title">按钮二</a>
+				<a class="tab-title">按钮三</a>
+			</div>
+			<ul>
+				<li class="tab-lists on">内容一</li>
+				<li class="tab-lists">内容二</li>
+				<li class="tab-lists">内容三</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript">
+		
+		$(".tab-title").click(function(){
+			//.removeClass('on')移除类名
+//			$('.tab-title').removeClass('on')
+			//addClass(类名)添加类名
+			$(this).addClass("on");
+			$(this).siblings().removeClass('on')
+			//index（）获取当前元素的下标
+			var index=$(this).index()
+			//找到当前元素的祖先  tab-box
+			var parent = $(this).parents('.tab-box')
+			//从祖先中查找某个元素
+			var ele = parent.find(".tab-lists")
+			ele.eq(index).addClass('on');
+			
+			ele.eq(index).siblings().removeClass('on');
+			
+		})
+		
+		
+	</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!--让页面1：1缩放-->
+		<meta name='viewport' content="width=device-width,initial-scale=1, maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="js/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+	</head>
+	<body>
+		<a class="btn btn-primary open-modal" data-index='1' data-whatever="@getbootstrap" data-toggle="modal" data-target=".modal-info">弹出框</a>
+		<a class="btn btn-primary open-modal" data-whatever="@getbootstrap" data-toggle="modal" data-target=".modal-info">弹出框</a>
+		<a class="btn btn-primary open-modal" data-whatever="@getbootstrap" data-toggle="modal" data-target=".modal-info">弹出框</a>
+		<a class="btn btn-primary open-modal" data-whatever="@getbootstrap" data-toggle="modal" data-target=".modal-info">弹出框</a>
+		
+		<div class="modal modal-info fade">
+			
+			<div class="modal-dialog modal-sm">
+				
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+						<div class="modal-title">摸态标题</div>
+					</div>
+					
+					<div class="modal-body">
+						
+					</div>
+					
+					<div class="modal-footer">
+						<a class="btn btn-default" data-dismiss="modal">取消</a>
+						<a class="btn btn-primary">确认</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-2.1.0.js"></script>
+	<script src="js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	<script>
+		
+//		$(".open-modal").click(function(){
+//			$('.modal-info').modal()
+//		})
+		
+		$(".open-modal").data('index','111')
+		
+		$(".open-modal").each(function(index,item){
+			console.log($(item).data('index'))
+		})
+		
+		
+		//显示模态框回调函数
+		$(".modal-info").on('show.bs.modal',function(event){
+			
+			console.log(event)
+			let el=$(event.relatedTarget)
+			//data-名字存储数据
+			//el.data(名字)
+			//el.data(名字,值)
+			el.data('whatever','whate...')
+			console.log(el.data('whatever'))
+		})
+		//模态框显示完成的回调函数
+		$(".modal-info").on('shown.bs.modal',function(){
+			
+			console.log(2222)
+		})
+		
+		
+		
+	</script>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//原型：原型都是对象
+		//prototype  就是构造函数上的  显示原型
+		//__proto__  就是实例上的   隐式原型
+		
+		function Dog(){    //因为被22·23行给new过了所以这里是构造函数
+			
+		}
+		Dog.prototype.a =1123   
+		
+		console.log(Dog.prototype)
+		
+		
+		var dog1 = new Dog()   //这里new了上面的函数   所以这里是   实例
+		var dog2 = new Dog()	//这里new了上面的函数   所以这里是   实例
+		
+		console.log(Dog.prototype.constructor ==Dog)
+		
+		//原型链：一个构造函数的原型是另一个构造函数的实例
+		
+		function Cat(){    //这里是另一个构造函数
+			
+		}
+		Cat.prototype = new Dog()    //这里是另一个构造函数的原型等于了new的上一个构造函数     这儿就变成了  实例
+		
+		var cat1 = new Cat()    //这里是new 的另一个构造函数的  实例
+		
+		console.log(cat1)
+		
+		console.log(cat1.a)
+		
+		console.log(Cat.prototype.__proto__.constructor == Dog)   //这里是另一个构造函数的原型下的prototype.__proto__.constructor等于了上一个构造函数的
+		
+		console.log(Cat.prototype.__proto__==Dog.prototype)  //这是另一个构造函数的原型下的prototype.__proto__等于了上一个构造函数的显示原型
+		
+		
+		
+	</script>
+</html>

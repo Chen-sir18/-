@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div>
+		<input type="text"/>
+		<button class="submit">提交</button>
+		<button class="trigger">触发提交事件</button>
+		<img src=""/>
+	</div>
+	<ul>
+		<li>大发大声道<button class="delete">删除</button></li>
+	</ul>
+</body>
+ <script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+ <script>
+
+ 	$('ul').on('click','.delete',function(){ //找到ul添加点击事件在ul的li里面的delete
+ 		$(this).closest('li').remove()   //添加的方法为closest（）当前的父级li移除
+ 	})
+ 	
+ 	$('.submit').click(function(){ //点击提交
+ 		var value = $('[type=text]').val(); //获取input中的value值  
+ 		//append（）添加获取到的input的value值到ul的li前
+ 		$('ul').append('<li>'+value+'<button class="delete">删除</button></li>')
+ 		//当提交成功时赋值给input的值为空
+ 		$('[type=text]').val('')
+ 	})
+ 	//trigger（）触发事件提交
+ 	$('.trigger').click(function(){ //点击提交
+		
+		$('.submit').trigger('click')
+ 	})
+	 	
+	//文档加载完成
+	//css html js img  加载完成
+	window.onload = function(){
+		console.log('onload')
+	}
+	
+	//文档加载完成
+	//css html js  加载完成
+	$(document).ready(function(){
+		console.log('ready')
+	})
+	//缩写成
+	$(function(){
+		console.log('noready')
+	})
+	 	
+	 	
+	 	
+	 	
+</script>
+</html>

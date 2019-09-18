@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			a{
+				cursor: pointer;
+			}
+			.dom-lists{
+				display: none;
+			}
+			.dom-lists.show{
+				display: block;
+			}
+			.dom-box.on .dom-title{
+				color: #FFCC00;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="dom-box">
+			<a class="dom-title">文档title</a>
+			<ul class="dom-lists">
+				<li>123</li>
+				<li>321</li>
+				<li>456</li>
+				<li>654</li>
+				<li>789</li>
+			</ul>
+		</div>
+		
+		<div class="dom-box">
+			<a class="dom-title">文档title</a>
+			<ul class="dom-lists">
+				<li>123</li>
+				<li>321</li>
+				<li>456</li>
+				<li>654</li>
+				<li>789</li>
+			</ul>
+		</div>
+		
+		<div class="dom-box">
+			<a class="dom-title">文档title</a>
+			<ul class="dom-lists">
+				<li>123</li>
+				<li>321</li>
+				<li>456</li>
+				<li>654</li>
+				<li>789</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+$(".dom-title").click(function(){
+	var parent = $(this).parent()
+	if(parent.hasClass('on')) {
+		
+		parent.removeClass('on')
+		//slideUp()  将显示的元素向上收缩    height
+		//$(this).next().slideUp(500)
+		
+	}else{
+		parent.addClass('on')
+		
+		parent.siblings().removeClass('on')
+		//父级的兄弟姐妹      find查找
+		parent.siblings().find('.dom-lists').slideUp()
+		
+		//slideDown()  将隐藏的元素向下滑出
+		//$(this).next().slideDown(500)
+		
+//			$(this).parent().find('.dom-lists')
+	}
+	//slideToggle()显示隐藏的切换该表高度         next下一个
+	$(this).next().slideToggle(500)
+	
+})
+	</script>
+</html>

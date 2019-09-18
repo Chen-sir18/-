@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input{
+				padding: 10px 15px;
+				width: 50px;
+				height: 20px;
+				border: 1px solid #E2E2E2;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<button class="jian">-</button>
+			<input type="text" class="num" value="1"> </input>
+			<button class="add">+</button>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		$(document).ready(function(){   //ready 在Dom文档加载完成时就执行
+		 //加的效果
+		 $(".add").click(function(){
+		   var n=$(this).prev().val();   //取当前元素的前一个兄弟元素的value值
+		   var num=parseInt(n)+1;   //将取到的value值取整+1，赋值给num
+		   if(num==0){ 
+		   	return;//判断num等于0返回一个return
+		   }
+		      $(this).prev().val(num); //取当前元素的前一个兄弟元素赋值num的value值
+		 });
+		 //减的效果
+		 $(".jian").click(function(){
+		   var n=$(this).next().val();
+		   var num=parseInt(n)-1;
+		   if(num==0){ return}
+		   $(this).next().val(num);
+		  })
+		})
+	</script>
+</html>

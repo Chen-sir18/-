@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<style>
+			body{
+				text-align: center;
+			}
+			.alter{
+				display: inline-block;
+				border: 1px solid #ccc;
+				background: #F2F2F2;
+				font-size: 14px;
+				padding: 8px 20px;
+				border-radius: 5px;
+				position: absolute;
+				top: 30%;
+			}
+			.alter-info{
+				border-color: greenyellow;
+				background: #dff0d8;
+				color: #3c763d;
+			}
+			.alter-error{
+				color: #a94442;
+				border-color: #ebccd1;
+				background: #f2dede;
+			}
+			.alter-warning{
+				color: #8a6d3b;
+				border-color: #faebcc;
+				background: #fcf8e3;
+			}
+			input{
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="alter alter-info">信息提示</div>
+		<div class="alter alter-error">错误提示</div>
+		<div  class="alter alter-warning">警告提示</div>-->
+		
+		<div class="padding-20-t">
+			<div class="margin-10-t">登录</div>
+			<div class="margin-10-t">
+				<input type="text" name="tel"/>
+			</div>
+			<div class="margin-10-t">
+				<input type="password" name="password"/>
+			</div>
+			<button class="margin-10-t submit">提交</button>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript" src="js/tooltip.js" ></script>
+<script>
+		$(".submit").click(function(){
+			var tel = $('[name=tel]').val()
+			var psd = $('[name=password]').val()
+			var reg = /^1[356789]\d{9}$/
+			if(!tel || !reg.test(tel)){
+				//第二种
+				$.tooltip({
+					type: 'error',
+					content: '请输入正确的手机号'
+				})
+				return;
+			}
+			if (!psd) {
+				$.tooltip({
+					type: 'error',
+					content: '请输入密码'
+				})
+				return;
+			}	
+			
+			$.tooltip({
+				type:'info',
+				content: '登录成功',
+				interval:1500,
+				
+				//回调函数
+				success: function(){
+					window.location.href = 'shoufengqin.html'
+				}
+			})
+			
+			
+				//第一种
+//			if(!tel){
+//				$.tooltip({
+//					type: 'error',
+//					content:'电话号码不能为空'
+//				})
+//				
+//				//$('body').append('<div class="alter alter-error">电话号码不能为空</div>')
+//				return;
+//			}
+			//假设登录成功
+//			$('body').append('<div class="alter alter-info">登录成功</div>')
+			
+		})
+	</script>
+</html>

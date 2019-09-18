@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="js/module1.js" type="module"></script>
+	<script type="module">
+		//导入		
+		//import {a,aa,c} from './js/module1.js'    //import {}  文件路径
+		import * as module1 from './js/module1.js'  //import * as 别名 from  文件路径
+		
+		//不加大括号只能通过export  default导出
+		//通过默认导出导入引入时不需要大括号   但是只能导出一次
+		//import {c} from './js/module1.js'
+		console.log(module1)
+		
+	</script>
+</html>

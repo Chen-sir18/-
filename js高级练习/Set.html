@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//Set 类数组数据类型   数据不能重复
+		//Set  和数组间的转换
+		//Set  转为数组[...arrSet]
+		//数组转Set  new Set(数组)
+		//Set  没有下标    但有尺寸   size     console.log(arrSet.size)
+		var arr = [1,2,3,4,5,'ggg','g','g',1,2,3,4]
+		let arrSet = new Set(arr)
+		arr = [...arrSet]
+		arrSet.add(7).add(8).add(9)   //可以多点几个add添加
+		console.log(arrSet)
+
+		for (let item of arrSet.entries()) {
+			console.log(item)
+		}
+		    
+		arrSet.delete(3)
+		console.log(arrSet.size)
+		
+		console.log(arrSet.has('g'))
+		
+		
+	</script>
+</html>

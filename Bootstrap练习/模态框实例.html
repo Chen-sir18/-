@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+	</head>
+	<style>
+		body{
+			padding: 20px;
+		}
+		.table{
+			margin-top: 20px;
+		}
+		.modal-add .control-label{
+			line-height: 34px;
+			padding: 0;
+		}
+	</style>
+	<body>
+		<a class="btn btn-primary add"
+			 data-toggle="modal"
+			  data-target=".modal-add">新增</a>
+		<div class="row">
+			<div class="col-sm-6">
+				<table class="table">
+					<tr>
+						<th>序号</th>
+						<th>用户名</th>
+						<th>密码</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>掌柜</td>
+						<td>12345</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="modal modal-add">
+			<div class="modal-dialog">
+				
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<a class="close" data-dismiss="modal">
+							<span class="">x</span>
+						</a>
+						<div class="modal-title">新增</div>
+						
+					</div>
+					
+					<div class="modal-body">
+						
+						<form class="form-horizontal form-user">
+							<div class="form-group">
+								<lable class="col-xs-3 control-lable text-right">用户名：</lable>
+								<div class="col-xs-9">
+									<input class="form-control" name="user" type="text"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<lable class="col-xs-3 control-lable text-right">密码：</lable>
+								<div class="col-xs-9">
+									<input class="form-control" name="password" type="password"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<lable class="col-xs-3 control-lable text-right">确认密码：</lable>
+								<div class="col-xs-9">
+									<input class="form-control" name="repassword" type="password"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<lable class="col-xs-3 control-lable text-right">序号：</lable>
+								<div class="col-xs-9">
+									<input class="form-control" name="index" type="number"/>
+								</div>
+							</div>
+						</form>
+						
+					</div>
+					
+					<div class="modal-footer">
+						<a class="btn btn-default" data-dismiss="modal">取消</a>
+						<a class="btn btn-primary add-user">新增</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="js/jquery-2.1.0.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/bootstrap-3.3.7-dist/js/bootstrap.js"></script>	
+	<script>
+		//验证表单
+		$(".form-user").validate({
+			
+			rules:{
+				user:{
+					required: true
+				},
+				password:{
+					required: true,
+					rangelength: [6,18]
+				},
+				repassword: {
+					equalTo: $("[name=password]")
+				}
+			},
+			messages:{
+				user:{
+					required:'用户名不能为空'
+				},
+				password:{
+					required: '密码不能为空',
+					rangelength: '密码长度为6-18之间'
+				},
+				repassword: {
+					equalTo: '轻输入相同的密码'
+				},
+				index:{
+					number: '请输入正确格式的序号'
+				}
+			}
+			
+		})
+		
+		$(".add-user").click(function(){
+			//判断是否验证通过
+			if (!$(".form-user").valid()) return; 
+			
+			//通过就获取数据  往表单中添加数据
+			var user = $("[name=user]").val()
+			var psd = $("[name=password]").val()
+			var index = $("[name=index]").val()
+			
+			var html = `<tr>
+							<td>${index}</td>
+							<td>${user}</td>
+							<td>${psd}</td>
+						</tr>`
+			
+			$(".table").append(html)
+			//隐藏模态框
+			$(".modal-add").modal('hide')
+			
+		})
+		
+		//只要隐藏模态框就重置表单
+		$(".modal-add").on('hide.bs.modal', function(){
+			$(".form-user")[0].reset()
+		})
+		
+	</script>
+</html>

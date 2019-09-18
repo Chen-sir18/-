@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.tab-list{
+				display: none;
+			}
+			.tab-list.on{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn">1</button>
+		<button class="btn">2</button>
+		<button class="btn">3</button>
+		<div class="tab-list on"> 1 </div>
+		<div class="tab-list"> 2 </div>
+		<div class="tab-list"> 3 </div>
+	</body>
+	<script>
+		var aBtn = document.querySelectorAll('.btn')
+		var tList = document.querySelectorAll('.tab-list')
+		
+		for (let i=0;i<aBtn.length;i++) {
+			aBtn[i].onclick = function(){
+				for (let j=0;j<aBtn.length;j++) {
+					tList[j].classList.remove('on')
+				}
+				tList[i].classList.add('on')
+				
+			}
+			
+			
+		}
+		
+	</script>
+</html>

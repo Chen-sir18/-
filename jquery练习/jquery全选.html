@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div>
+			<table><input class="check-all" type="checkbox" />全选</table>
+		</div>
+		<div class="goods">
+			<table><input type="checkbox"/>1</table>
+			<table><input type="checkbox"/>2</table>
+			<table><input type="checkbox"/>3</table>
+			<table><input type="checkbox"/>4</table>
+			<table><input type="checkbox"/>5</table>
+		</div>
+		
+		
+		
+		
+		
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script type="text/javascript">
+		var checkAll=$(".check-all");
+		var checkList=$(".goods input");
+		checkAll.change(function(){
+			//this当前元素的js对象
+			console.log(this);
+			//当前元素的jquery对象
+			console.log($(this));
+			if (this.checked) {
+				//prop()改变属性
+				checkList.prop('checked',true)
+			}else{
+				//prop()改变属性
+				checkList.prop('checked',false)
+			}
+		})
+		
+	</script>
+</html>

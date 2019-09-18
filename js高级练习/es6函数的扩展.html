@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</body>
+	<script>
+
+		function aa(){
+			
+			console.log(111)
+		}
+		aa()
+		//定义一个变量将一个匿名函数复制给这个变量
+		//函数可以给默认值   与函数外部变量没有关系
+		let x =1
+		let bb = function(x=1,y=x){
+			console.log(x,y)
+		}
+		bb(2)
+		//...a  rest运算   主要运用的是数组的扩展运算
+		//不能  逗号没有赋值的参数，null，undefined可以使用cc(,1)
+		let cc = function(...a){
+			console.log(a)
+		}
+		cc(null,1)
+		//dd = (x) 参数=>x
+		//当参数只有1时，小括号可以省略
+		//dd = x =>x
+		//当函数的运行体有多句话时用{}包起来
+		//箭头函数指向调用函数的父级
+		let dd = x =>{
+			x =x+1
+			
+			return x
+		}
+		console.log(dd(10))
+		
+		var aDiv = document.querySelectorAll('div')
+		
+		for (let i=0;i<aDiv.length;i++) {
+			
+			aDiv[i].onclick = function(){
+				setTimeout( ()=> {
+					
+					console.log(this)
+					
+				},1000)
+			}
+			
+			
+		}
+		
+		
+		
+	</script>
+</html>

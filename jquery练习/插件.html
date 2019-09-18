@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<label><input name="hoby" type="checkbox" /></label>
+			<label><input name="hoby" type="checkbox" /></label>
+			<label><input name="hoby" type="checkbox" /></label>
+			<label><input name="hoby" type="checkbox" /></label>
+		</div>
+		<div>
+			<label><input name="nini" type="checkbox" /></label>
+			<label><input name="nini" type="checkbox" /></label>
+			<label><input name="nini" type="checkbox" /></label>
+			<label><input name="nini" type="checkbox" /></label>
+		</div>
+		<div>
+			<button>全选hoby</button>
+			<button>全选nini</button>
+			<button>全不选</button>
+			<button>反选</button>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		//$.fn代码所有jquery对象，合并对象，合并到jquery对象上
+		//$.fn增加的方法相当于往jquery对象上增加
+		//$.extend
+		//$.fn.extend
+		//$.fn.method = function(){}
+		//1.在用到的地方不一样
+		//2.封装的作用不一样
+		
+
+		
+		$.fn.extend({
+			checkAll:function(){
+				$(this).prop('checked',true)    //全选
+			},
+			uncheckAll:function(){    
+				$(this).prop('checked',false)   //全不选
+			},
+			reversCheck:function(){         //反选
+				
+				$.each(this, function(index,item) {   //each（）匹配到的元素都使用这函数
+					$(this).prop('checked',!$(this).prop('checked'))
+//					this.checked = !this.checked
+				})
+			}
+		})
+		//////上面部分$.fn.extend为封装的工具
+//		$('[type=checkbox]').checkAll();
+		////////这部分为调用上面的工具
+		$('button').eq(0).click(function(){
+			$("[name=hoby]").checkAll()
+		
+		})
+		$('button').eq(1).click(function(){
+			$("[name=nini]").checkAll()
+		
+		})
+		$('button').eq(2).click(function(){
+			$("[type=checkbox]").uncheckAll()
+		
+		})
+		$('button').eq(3).click(function(){
+			$("[type=checkbox]").reversCheck()
+		
+		})
+///////////////////////////////////
+//////////////////////////////////////		
+		
+		
+		
+		//把去掉的字符串的左边空格封装成工具
+		$.extend({
+			
+			leftStrim:function(str){
+				
+				var reg = /^\s*/
+				//replace(被替换的字符，正在替换的字符)
+				str = str.replace(reg,'')
+				return str
+			},
+			rightStrim:function(str){
+				var reg = /\s*$/
+				
+				str = str.replace(reg,'')
+				return str
+			}
+		});
+		
+		//去掉左边的空格
+		var  str = '  dsgsfdh  '
+		var  str1 = $.leftStrim(str)
+		
+		console.log('---'+str1+'----')
+		
+		var  str2 = $.rightStrim(str)
+		
+		console.log('----'+str2+'---')
+		
+		
+	</script>
+</html>

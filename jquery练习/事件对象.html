@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 200px;
+				height: 200px;
+				background: darkgreen;
+			}
+			.box1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			.scroll{
+				height: 2000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="scroll">
+			<div class="box">
+				<div class="box1">
+					
+				</div>
+			</div>
+			<button class="getEventpos">获取鼠标位置</button>
+			<a href="http://www.baidu.com" target="_blank"></a>
+			<from>
+				<input type="text"/>
+				<button>提交</button>
+			</from>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	><script>
+		//事件对象  依赖于事件  event  对象类型
+		$('.getEventpos').click(function(event){
+			//鼠标距离当前元素的X轴的距离  Y轴的距离
+			console.log('offsetX'+event.offsetX)
+			console.log('offsetY'+event.offsetY)
+			//pageX   pageY鼠标点击的地方距离页面的X轴和Y轴的距离
+			console.log('pageX'+event.pageX)
+			console.log('pageY'+event.pageY)
+			//clientX  clientX屏幕可见区域  鼠标点击的地方距离屏幕X轴的距离Y轴的距离
+			console.log('clientX'+event.clientX)
+			console.log('clientY'+event.clientX)
+	
+		})
+		
+		$('a').click(function(){
+			//preventDefault() 阻止a标签默认的跳转事件
+			event.preventDefault()
+		})
+		
+		$('button').click(function(event){
+			//第一种可以阻止默认
+			//event.preventDefault()
+			
+			//第二种阻止默认
+			return false;
+		})
+	</script>
+</html>

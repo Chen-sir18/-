@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+	<script>
+		var a = 1;
+		var obj = {
+			name: 'chenlong',
+			age: 18
+		}
+		var b = a;
+		var obj1 = obj;
+		
+		 b = 2;
+		 obj1.age = 22
+		 obj1.sex = 'nan'
+		 console.log(obj,a)
+		console.log(obj1,b)
+		
+		function fn1(obj2){
+			c = 9
+			console.log(a,c)
+			obj2.name = 'suli'
+			obj2.hoby = 'kge,tw,'
+			console.log(obj2,obj)
+		}
+		fn1(obj)
+		
+	</script>
+</html>

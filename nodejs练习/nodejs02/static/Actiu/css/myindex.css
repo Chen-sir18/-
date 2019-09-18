@@ -1,0 +1,12 @@
+
+/*重写bootstrap
+ * 重写注意bootstrap中的东西都是封装的   更改bootstrap样式  全局都会被更改
+ * 更改的时候要小心
+ * 不是全局更改的  一定不能重写样式
+ * */
+/*.container-fluid, .container{
+	padding: 0;
+}*/
+.container-index{
+	padding: 0;
+}

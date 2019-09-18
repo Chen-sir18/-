@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<!--<p class="p"><b>Values: </b></p>
+		<form>
+		  <input type="text" name="name" value="John"/>
+		  <input type="text" name="password" value="password"/>
+		  <input type="text" name="url" value="http://ejohn.org/"/>
+		</form>
+		<p><b>Values: </b><input  /></p>
+		<p><b>Values: </b><input  /></p>
+		<p><b>Values: </b><input  /></p>
+		<p><b>Values: </b><input  /></p>
+		<p><b>Values: </b><input  /></p>
+		<p><b>Values: </b><input  /></p>
+		<p><b>Values: </b><input  /></p>-->
+		
+		
+		<div class="div1">
+			<div class="div2">
+				<div class="div3">
+					<ul class="ul">
+						<li  class="li1">1</li>
+						<li  class="li2">2</li>
+						<li class="li3">3
+							<ul>
+								<li>11</li>
+								<li>21</li>
+								<li>32</li>
+							</ul>
+						</li>
+						<li class="li4">4</li>
+						<li class="li5">5</li>
+						<li class="li6">6</li>
+						<li class="li7">7</li>
+						<li class="li8">8</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		//第一个参数  表示下标
+		//第二个参数表示  数组元素
+//		$("input").map(function(index,value,arr){
+//			console.log(value,index,arr)
+//		})
+//		//从已经选的标签中去掉符合not条件的元素
+//		$("p").not($('p').last()).css({
+//			color: 'red'
+//		})
+//		//slice截取数组   []中括号可以不传值，左闭右开
+//		$("p").slice(1).css({
+//			color: 'green'
+//		})
+
+		//查找所有的子元素
+		console.log($(".div2").children())
+		//查找所有的后代
+		$(".div2").find('li').css({
+			color: 'red'
+		})
+		console.log($(".div2").find('li'))
+		//parent()查找父级
+		console.log($('.ul').parent())
+		//parents()  查找祖先   会一直查找
+		console.log($(".ul").parents('.div2'))
+		//closest()查找祖先  找到一个后就停止查找了
+		console.log($(".ul").closest('.div1'))
+		//找到同级的前一个兄弟元素
+		$(".li3").prev().css({
+			color: '#666'
+		})
+		//查找当前元素之前所有的同辈元素  不包含自己
+		$(".li3").prevAll().css({
+			color: '#999'
+		})
+		//查找当前元素之前所有的同辈元素，直到遇到匹配的那个元素为止。不包含结束的位置元素
+		$(".li8").prevUntil('.li3').css({
+			color: 'yellow'
+		})
+		//找的是兄弟姐妹
+		$(".li4").siblings('.li3').css({
+			color: 'pink'
+		})
+		
+	</script>
+</html>

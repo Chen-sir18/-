@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*
+			 * body   浏览器默认字体大小16px
+			 * 2em  相当于16px的2倍
+			 * em  相对于父级的字体大小
+			 * 当  当前元素有字体大小的时候  其他属性的 em计算根据当前元素的字体大小计算
+			 */
+			body{
+				font-size: 12px;
+			}
+			div{
+				/*代码计算*/
+				font-size: 6px;
+			}
+			button{
+				/*font-size: 16px;*/
+				padding: 0 1em;
+			}
+			html{
+				font-size: 16px;
+			}
+			/*rem   根据  根节点的字体大小计算
+			 * 经常用来做手机端项目
+			 * font-size需要用js计算  屏幕大小
+			 */
+			.p{
+				font-size: 2rem;
+			}
+			
+			@media only screen and ( max-width:1200px ) {
+				html{
+					font-size: 14px;
+				}
+			}
+			@media only screen and ( max-width:992px ) {
+				html{
+					font-size: 16px;
+				}
+			}
+			@media only screen and ( max-width:768px ) {
+				html{
+					font-size: 18px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<button>外按钮</button>
+		<div>
+			<button> 按钮</button>
+		</div>
+		<p class="p">
+			<em>dhglkjaagd</em>
+		</p>
+	</body>
+</html>

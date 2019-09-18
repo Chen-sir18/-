@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.list-text{
+				width: 400px;
+				height: 400px;
+				border: 1px solid #FFCC00;
+				background: #F7F7F7;
+				margin-bottom: 10px;
+				padding: 0 10px;
+				font-size: 14px;
+				color: brown;
+			}
+			[name=content]{
+				width: 200px;
+				height: 30px;
+				vertical-align: top;
+				border-radius: 5px;
+				border: 1px solid #FFCC00;
+			}
+			.send{
+				display: inline-block;
+				height: 30px;
+				border: 1px solid #FFCC00;
+				line-height: 30px;
+				border-radius: 5px;
+				font-size: 12px;
+				padding: 0 10px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="list-text">
+			<!--<div>张三：这是张三发送的信息</div>-->
+		</div>
+		<div class="info">
+			<span class="name">张三：</span>
+			<textarea name="content"></textarea>
+			<a class="send">评论</a>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		var send = $(".send")
+		send.click(function(){
+			var value = $("[name=content]").val()
+			if (value) {
+				
+				
+				if (confirm('是否确定提交')) {
+					var html =`<div>张三：${value}</div>`
+					
+					//append向标签中后面添加标签
+//					$(".list-text").append(html)
+					//appendTo向标签中父级后面添加标签
+//					$(html).appendTo($(".list-text"))
+					//向标签中添加元素  添加到前面
+//					$(".list-text").prepend(html)
+//					//向标签中添加元素  添加到父级前面
+					$(html).prependTo($(".list-text"))
+					
+					$("[name=content]").val('')
+				}
+				
+			}
+			
+			
+			
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+//		//工厂模式：
+//		function person(name,callName){
+//			var obj = new Object();
+//			console.log(obj);
+//			obj.name = name;
+//			obj.callName = callName;
+//			obj.callName()	
+//		}
+//		person('zhangsan',function(){console.log(this .name)})
+//		person('zhasan',function(){console.log(this .name)})
+//		person('z456gsan',function(){console.log(this .name)})
+//		person('zhangsan',function(){console.log(this .name)})
+//		person('zhgjngsan',function(){console.log(this .name)})
+//		person('zhangsan',function(){console.log(this .name)})
+//		person('aaasan',function(){console.log(this .name)})
+//		person('zhangsan',function(){console.log(this .name)})
+//		person('zhangsan',function(){console.log(this .name)})
+//		person('an',function(){console.log(this .name)})
+//		//2.函数转对象
+//		function fuk(name,callName){
+//			console.log(this)
+//			this.name = name
+//			this.callName = callName
+//		}
+//		var obj1 = new fuk('zhangsan',function(){
+//			console.log(this.name)
+//		})
+//		var obj2 = new fuk('zhangsan',function(){
+//			console.log(this.name)
+//		})
+//		var obj3 = new fuk('zhangsan',function(){
+//			console.log(this.name)
+//		})
+		
+		//原型
+		function Dog(obj){
+			
+			for(var prop in obj){
+				this[prop] = obj[prop]
+			}
+			
+		}
+		Dog.prototype.sayname = function(){
+			console.log(this.name)
+		}
+		Dog.prototype.chen = function(){
+			console.log('龙')
+		}
+		Dog.prototype.longg = function(){
+			console.log('long')
+		}
+		var obj = new Object({
+			name: 'lisi',
+			type: '手动',
+			color: '黑',
+			eye: '灰'
+		})
+		console.log(obj)
+		var dog1 = new Dog({
+			name: 'lisi',
+			type: '手动',
+			color: '黑',
+			eye: '灰'
+		})
+		var dog2 = new Dog({
+			name: 'wanger',
+			type: '赶快'
+		})
+		console.log(dog1)
+		console.log(dog2)
+		console.log(Dog.prototype)
+		
+		console.log(dog1.__proto__ == obj.__proto__)
+		console.log(Object.prototype == obj.__proto__)
+	
+		function Cat(obj){
+			for(var prop in obj){
+				this [prop] = obj[prop]	
+			}
+			
+		}
+		
+		console.log(new Dog())
+		Cat.prototype = new Dog({
+			type: '嘿嘿嘿',
+			color: '黑',
+			eye: '灰'
+		})
+	
+		var Cat1 = new Cat({
+			name: 'cat'
+		})
+		Cat1.sayname()
+		Cat1.chen()
+		Cat1.longg()
+		console.log(Cat1.color)
+	</script>
+</html>

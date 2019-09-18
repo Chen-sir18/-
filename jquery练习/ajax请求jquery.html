@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			li{
+				list-style: none;
+				float: left;
+				margin: 10px;
+				width: 20%;
+			}
+			li img{
+				width: 50px;
+				height: 50px;
+			}
+			ul{
+				width: 100%;
+				
+			}
+			ul:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			
+		</ul>
+		<ul>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			
+		</ul>
+		<ul>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			<li>
+				<img src="img/eg.jpg"/>
+				<p>dsdf</p>
+				<p>￥99.00</p>
+			</li>
+			
+		</ul>
+	</body>
+	<script src="js/jquery-2.1.0.js" ></script>
+	<script>
+		//访问其他端口
+//		var requestUrl = 'http://192.168.97.250:3002/'
+		//访问本地端口
+		var requestUrl = 'http://127.0.0.1:3001/'
+		
+		for (var j=0;j<3;j++) {
+			sendAjax(j)
+		}
+		
+		function sendAjax(id){
+			
+				$.ajax({
+					url:requestUrl + 'lists?id=' + id,
+					type:'get',
+					//请求是同步还是异步
+					async:true,
+					//请求页面的类型 json  string xml html script jsonp
+					dataType:'json',
+					//请求成功回调
+					success:function(res){
+						
+						if (res.success) {
+							var lists = res.list;
+							
+							var html='';
+							for (var i = 0;i<lists.length;i++) {
+								html+=`<li>
+											<img src="${requestUrl + lists[i].img}"/>
+											<p>${lists[i].title}</p>
+											<p>￥${lists[i].price}</p>
+										</li>`
+								
+							}
+							$("ul").eq(id).html(html)
+						}
+						
+					}
+					
+			});
+			
+		}
+		
+	</script>
+</html>

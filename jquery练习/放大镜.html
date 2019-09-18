@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.detail-image{
+				width: 400px;
+				height: 400px;
+			}
+			
+			.jqzoom{
+				position: relative;
+			}
+			.jqzoom .small-img{
+				max-width: 100%;
+				max-height: 100%;
+			}
+			.jqzoom .zoom-pop{
+				width: 100px;
+				height: 100px;
+				background: #fff;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0.6;
+			}
+			.zoom-big{
+				position: absolute;
+				top: 0;
+				right: -440px;
+				width: 200px;
+				height: 200px;
+				overflow: hidden;
+			}
+			.zoom-big img{
+				position: absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="jqzoom detail-image">
+			
+			<img class="small-img" src="img/big2.jpg" />
+			
+			<!--<div class="zoom-pop"></div>
+			<div class="zoom-big">
+				<img src="img/big2.jpg"/>
+			</div>-->
+		</div>
+	</body>
+	<script src="js/jquery-2.1.0.js"></script>
+	<script src="js/jqzoom.js"></script>
+	<script>
+		$('.jqzoom').jqzoom({
+			offwidth: 300,
+			offheight: 300
+			
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//类中方法的使用相当于构造函数中原型方法的使用
+		//类中多个方法之间不用 逗号 隔开
+		// 每一个类都会默认调用 construtor方法
+		//
+		class Point{
+			constructor(obj){
+				for (let prop in obj) {
+					this[prop] = obj[prop]
+				}
+			}
+			say(){
+				console.log(111)
+			}		//类中多个方法之间不用 逗号 隔开
+			say1(){
+				console.log(222)
+			}
+		}
+		let p = new Point({			//实例
+			x: 2,
+			y: 3,
+			z: 4
+		})  
+		
+		
+		
+		//继承     类的继承会继承属性  属性方法
+		//当有继承存在时  需要调用上级的属性  要调用super()
+		//通过调用super传参  继承属性
+		class PointChild extends Point {
+			constructor(obj){
+				super(obj)
+			}
+			saychild(){
+				console.log('child')
+			}
+		}
+		
+		let child = new PointChild({
+			x:1,
+			y:2
+		})
+		child.say()
+		console.log(child)
+		
+		
+		
+		//构造函数以及原型的应用
+		function Factory(obj){  //构造函数
+			
+			for (let prop in obj) {
+				this[prop] = obj[prop]
+			}
+			
+		}
+		
+		Factory.prototype.sayx = function(){
+			console.log(this.x)
+		}
+		
+		
+		let f = new Factory({   //实例
+			x:1,y:2
+		})
+//		console.log(f)
+//		f.sayx()
+		
+	</script>
+</html>

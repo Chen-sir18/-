@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			input{
+				border: none;
+				cursor: pointer;
+			}
+			input:focus{
+				outline: none;
+			}
+			li{
+				list-style: none;
+			}
+			.select-box{
+				border: 1px solid #ccc;
+				width: 200px;
+			}
+			.select-lists{
+				display: none;
+				cursor: pointer;
+				border-top: 1px solid #ccc;
+			}
+			.select-lists.show{
+				display: block;
+			}
+			.select-lists li:hover{
+				background: #f2f2f2;
+			}
+		</style>
+	</head>
+	<body>
+		<select>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+		</select>
+		
+		<div class="select-box">
+			<div class="select-title">
+				<input type="text" readonly="readonly" value="1"/>
+				<span>﹀</span>
+			</div>
+			<ul class="select-lists">
+				<li class="lists">1</li>
+				<li class="lists">2</li>
+				<li class="lists">3</li>
+			</ul>
+		</div>
+		
+		<div class="select-box">
+			<div class="select-title">
+				<input type="text" readonly="readonly" value="1"/>
+				<span>﹀</span>
+			</div>
+			<ul class="select-lists">
+				<li class="lists">1</li>
+				<li class="lists">2</li>
+				<li class="lists">3</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script src="selectOption.js"> </script>
+	<script>
+		$('.select-box').selectExamp({
+			parent: '.select-box'
+		})
+	</script>
+
+</html>

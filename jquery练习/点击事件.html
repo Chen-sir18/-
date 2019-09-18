@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 200px;
+				height: 200px;
+				background: darkgreen;
+			}
+			.box1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			.box2{
+				width: 50px;
+				height: 50px;
+				background: yellow;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">
+				<div class="box2">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		var box = $('.box')
+		//1.给box加点击事件
+		//事件冒泡  事件从里向外  或者从外向里
+		box.click(function(){
+			console.log('点击box')
+		})
+		//bind(绑定事件名 ， [data]，事件执行函数体)
+		box.bind('click',function(){
+			console.log('bind绑定点击事件')
+		})
+		//on(绑定事件名，[selector]，[data]，函数执行体)
+		box.on('click',function(){
+			console.log('on绑定点击事件')
+		})
+		$(document).on('click','.box',function(){
+			console.log('document绑定点击事件到box上')
+		})
+		
+		//2.给box加移入移出事件
+		box.mouseenter(function(){
+			console.log('mouseenter移入')
+		})
+		//mouseover移入子元素再次执行移入事件
+		box.mouseover(function(){
+			console.log('mouseover移出')
+		})
+		box.mouseleave(function(){
+			console.log('mouseleave移出')
+		})
+		//mouseout  移入子元素也算移出
+//		box.mouseout(function(){
+//			console.log('mouseout移出')
+//		})
+//		function hover1(){
+//			console.log('hover')
+//		}
+//		function hover2(){
+//			console.log('hover2')
+//		}
+
+		//hover的移入移出相当于mouseenter  mouseleave 
+		box.hover(function(){
+			console.log('hover移入')
+		},function(){
+			console.log('hover移出')
+		})
+		
+		box.on('hover',function(){
+			console.log('hover')
+		})
+		//toggle显示隐藏
+		box.click(function(){
+			$('.box1').toggle(function(){
+				console.log(111)
+			})
+		})
+		
+	</script>
+</html>

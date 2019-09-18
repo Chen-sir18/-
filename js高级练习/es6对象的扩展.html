@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		let x =1
+		let obj = {
+			x:x,
+			aa:function(){
+				console.log(this.x)
+			},
+			x1: 'fdgafgg'
+		}
+		//属性名与值一样时，可以只写属性名
+		//属性方法可以省略：function  定义
+		let obj1 = {
+			x,
+			aa(){
+				console.log(this.x)
+			},
+			find(){
+				return super.x
+			}
+		}
+		
+		//console.log(obj,obj1)
+		obj.aa()
+		console.log(obj1.find())
+		console.log('super')
+		let c = 'x'
+		
+		function bb(){
+			return 'x1'
+		}
+		//对象的属性获取可以用表达式的样式来获取值
+		console.log(obj[bb()])
+		
+		//对象中方法的名字就是对象属性方法的名字
+		console.log(obj.aa.name)
+		
+		var obj2 = {
+			a: 1,
+			get foo(){
+				return	
+			},
+			set foo(value){
+				this.a = value
+			}
+		
+		}
+		
+		var propertyObj = Object.getOwnPropertyDescriptor(obj2,'foo')
+		
+		console.log(propertyObj)
+		console.log(propertyObj.get.name)
+		
+//		for(let prop in propertyObj){
+//			console.log(prop)
+//		}
+		
+		var a = [1,2,3]
+		var b = [3,4,5]
+		
+		c = {...a, ...b}
+		console.log(c)
+		
+//		let prop = {x:1,y:2,...z}
+//		
+//		prop = {x:1,y:2,z:3,c:4}
+//		console.log(z)
+		
+//		let {x,y,...z} = {x:1,y:2,a:3,b:4}
+
+		let {name,name1,...z} = {name:1,name1:2,a:3,b:4}
+		
+		let {...name3} = {a:null,b:3,d:4}
+//		let {...name4} = undefined
+		console.log(name3)
+
+
+
+	</script>
+</html>

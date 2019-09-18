@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul class="ul1">
+			<li style="display: none;">dsgagd</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>1</li>
+			<li><a></a></li>
+			<a></a>
+		</ul>
+		<ul style="display: none;">
+			<li>111</li>
+			<li>221</li>
+			<li>321</li>
+			<li>421</li>
+		</ul>
+		<ul style="visibility: hidden;">
+			<li>1111</li>
+			<li>22111</li>
+			<li>32111</li>
+			<li>42111</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script >
+		$("li:first-child").css({  //查找第一个孩子
+			color:'red'
+		})
+		$("li:last-child").css({   //查找最后一个孩子
+			color:'green'
+		})
+		$("li:nth-child(3)").css({   //查找第三个孩子
+			color:'purple'
+		})
+		//:查找不可见的元素
+		console.log($(":hidden"))
+		
+		
+		console.log($(".ul1 li:contains(1)"))   
+		$(".ul1 li:contains(1)").css({   //查找类名为ul1的第一个孩子
+			background:'red'
+		})
+		
+		$("li:empty").css({      //查找没有子节点及文本的元素
+			background:'green'
+		})
+		
+		$("ul:has(a)").css({   //查找包含selector选择器的标签
+			background:'yellow'
+		})
+		
+		$("li:parent").css({   //查找有子元素及文本的标签
+			background:'purple'
+		})
+	</script>
+</html>

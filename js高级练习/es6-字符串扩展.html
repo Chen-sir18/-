@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//Array.from(obj)  将对象转数组
+		
+		var obj = {
+			0: '数组1',    //‘0’为下标  ‘'数组1'’为值
+			1: '数组2',
+			3: '数组4',
+			length:4     //length为obj数组长度    长度为多少就有多长，没有的下标对应的值显示为undefined	
+		}
+		var arr = Array.from(obj)
+		console.log(arr)
+		
+		let arr2 = [1,2,3,4]
+		//Array.of()  将，分割的字符串转为数组
+		//...扩展运算符  将数组转为以逗号分割的字符串
+		var arr1 = Array.of(...arr2)
+		console.log(arr1)
+		
+		var arr3 = [1,2,3,1,4,5,6,4,9,0]
+		//arr3.copyWithin() 复制一个选中的数组元素到某一个位置
+//		arr3.copyWithin(0,4,6)
+//		console.log(arr3)
+		
+		//find(function(){})  找到符合条件的值就返回
+		let a = arr3.find(function(c){
+			return c>5
+		})
+		console.log(a)
+		
+		//item 返回值
+		for (let item of arr3) {
+			console.log(item)
+		}
+		
+		//arr3.keys()   获取数组的下标形成的数组
+		for (let item of arr3.keys()) {
+			console.log(item)
+		}
+		
+		// arr3.values()  获取数组的值
+		for (let item of arr3.values()) {
+			console.log(item)
+		}
+		
+		//arr3.entries()  转为二维数组，第一个元素为下标，第二个元素值
+		for (let cl of arr3.entries()) {
+			console.log(cl)
+		}
+		for (let [index,item] of arr3.entries()) {
+			console.log(index,item)
+		}
+		
+		//arr4.flat()   将数组转为一维数组
+		var arr4 = [[1,[2,2]],[3,4],[5,6]]  //此时为三维数组
+		
+		console.log(arr4.flat(2))   //   这里的2 为解构两次的意思   将三维数组解构两次变一维数组
+		
+	</script>
+</html>

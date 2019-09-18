@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//1.Map()    new Map()   类对象数据类型   键和值
+		
+		let m = new Map()  //Map实例
+		
+		m.set('a',1)  //给map设置值
+		
+		//console.log(m.get('a'))  //get 获取map中的值
+		
+		//2.与对象（object）的区别  
+		//object中对象的键只能为字符串
+		//如果为对象也会自动转为字符串
+		//map  键可以为对象  也可以为函数
+		let obj = new Object({
+			a:1
+		})
+		
+		let key1 = {
+			P:'haha'
+		}
+		
+		let aa = function(){
+			//console.log('这是map中通过key调用的函数')
+		}
+		m.set(key1,'这是一个map中的元素，键为对象')
+		m.set(aa,'这是一个函数')
+		
+		//4.当键为对象时，当内存地址不一样的时候值一样的时候，会把它看成两个键
+		//要成为map的同一个键   不仅值要一样  内存地址也要一样
+		m.set({b:1111},'2222')
+		console.log('设置对象的元素')
+		console.log(m.get({b:1111}))
+		
+		let b = {b:1111}
+		let c = {b:1111}
+		let a1 = 1
+		let a2 = 1
+		
+		m.set(b,'1111')
+		m.set(c,'3333')
+		m.set(a1,'a1')
+		m.set(a2,'a2')
+		
+		console.log(m)
+		
+		//3.遍历一个Map对象
+		//3.m.entries()  将对象解析成键和值组成的数组            				 
+		for (let [key,value] of m.entries()) {			/*推荐在循环对象属性的时候，使用for...in,
+														  * 在遍历数组的时候的时候使用for...of。
+														  * for...in循环出的是key，for...of循环出的是value
+														  * */
+			//console.log(key,value)
+		}
+		
+		for (let key of m.keys()) {  
+			if (typeof key == 'function') {
+				key()
+			} else if (typeof key == 'object'){
+				//console.log(key.p+'这是map可以获取的对象元素')
+				}	
+		}	
+		for(let value of m.values()){
+			//console.log(value)
+		}
+		
+		
+		
+		
+		obj[key1] = '这是一个obj中的元素  键为对象'
+		obj[aa] = '这是一个函数'
+		
+		for (let key in obj) {
+			//console.log(typeof key + '---obj')
+		}
+	</script>
+</html>

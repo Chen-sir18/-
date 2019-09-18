@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scable=no" />
+		<title></title>
+		<style>
+			div{
+				font-size: 0.16rem;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div >
+			lkjfdhaldig
+		</div>
+	</body>
+	<script>
+		
+		
+		fontSize()
+		
+		window.onresize = function(){
+			fontSize()
+		}
+		
+		
+		function fontSize(){
+			//规定屏幕大小750px  html字体大小100px   方便计算
+			
+			//    盒子的宽度/字体大小 = 750/100
+			let width = document.documentElement.clientWidth * 2
+			
+			width = width >750 ? 750 : width
+			
+			fontsize = width/750*100
+			
+			document.querySelector('html').style['font-size'] =fontsize + 'px'
+			
+		}
+		
+	</script>
+</html>

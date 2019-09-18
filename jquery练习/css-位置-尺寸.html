@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			span{
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>我是陈龙</p>
+		
+		<div>我是</div>
+		<div class="demo"><span>陈龙</span></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+	<script>
+		//改变css的样式
+		$("p").css({ "color": "#ff0011", "background": "blue" });
+		//找到最后一个div
+//		var aDiv = $("div:last");
+//		//offset()获取匹配元素在当前视口位置的相对偏移
+//		var offset = aDiv.offset();
+//		aDiv.html( "left: " + offset.left + ", top: " + offset.top )
+		$("div:last").offset({
+			top:100,		//此出属性值不用加px  偏移的值
+			left:300		//此出属性值不用加px
+		})
+		//position()  获取匹配元素相对父元素的偏移    只针对可见元素使用
+		var aSpan = $("span:first");
+		var position = aSpan.position();
+		$("span:last").html( "left: " + position.left + ", top: " + position.top )
+		//获取匹配元素相对滚动条顶部的偏移
+		var p= $("p:first");
+		$("p:last").text( "scrollTop:" + p.scrollTop())
+	
+	</script>
+</html>

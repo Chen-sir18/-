@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//1.定义一个函数，使函数返回的多个值为数组[a,b,c] 中的a,b,c 分别赋值为1,2,3
+		function one([a,b,c]){
+			return [a,b,c]
+		}
+		let [a,b,c] = [1,2,3]
+		console.log(a,b,c)   //1,2,3
+
+		//2.使用函数传值,使得x，y，z的值为1，2，3
+//		function f([x,y,z]){
+//			console.log(x,y,z)
+//		}
+//		f([1,2,3])
+//		
+		//3.设置响应的解构模式，提取json中的数据
+		let jsonData = {
+			  id: 42,
+			  status: "OK",
+			  data: [867, 5309]
+			}
+		let { id, status, data} = jsonData
+		console.log(jsonData,id, status, data)	
+
+		//4.求： line loc start
+//		const  node = {
+//		   loc: {
+//		 	 start: {
+//		     line:  1,
+//		     colum: 5
+//				}
+//			}
+//		   
+//		}
+//		let {loc, loc:{ start }, loc: {start: { line }}} = node
+//		console.log(line,loc,start)
+		
+		//5.求: obj arr
+//		Let obj = {};
+//		Let arr = [];
+//		({foo: obj.prop, bar: arr[0]} = {foo: 123, bar: true})  //foo为obj.prop  bar为true
+
+	</script>
+</html>

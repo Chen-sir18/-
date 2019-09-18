@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			canvas{
+				width: 600px;
+				height: 400px;
+				/*background: deeppink;*/
+				border: 1px solid goldenrod;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>	
+	</body>
+	<script>
+		let canv = document.querySelector("#canvas")
+		
+		canv.width = 600
+		canv.height = 400
+		
+		let contend2d = canv.getContext('2d')
+		
+		//长方形
+		contend2d.fillStyle = 'red'
+		
+		contend2d.fillRect(50,50,200,100)
+		contend2d.fillStyle = 'yellow'
+		contend2d.moveTo(400,350)
+		contend2d.lineTo(550,350)
+		contend2d.lineTo(400,200)
+		contend2d.lineTo(400,350)
+		//填充颜色fill()
+		contend2d.fill()
+		contend2d.strokeStyle = 'red'
+
+		//描边stroke()
+		contend2d.stroke()
+		
+		//画圆  圆心半径     起始位置   结束位置   
+//		contend2d.fillStyle = 'palegoldenrod'
+		//从另一个起点开始 
+		contend2d.beginPath()
+//		
+//		contend2d.arc(250,250,50,0,Math.PI*2)
+//		contend2d.stroke()
+//		contend2d.fill()
+//		
+		//渐变
+		let grad = contend2d.createLinearGradient(250,250,200,200)
+		
+		grad.addColorStop(0,'greenyellow')
+		grad.addColorStop(0.5,'blue')
+		grad.addColorStop(1,'black')
+		
+		contend2d.arc(250,250,50,0,Math.PI*2)
+		contend2d.fillStyle = grad
+		contend2d.fill()
+		
+	</script>
+</html>
