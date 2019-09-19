@@ -214,6 +214,7 @@ body{
 	text-transform: uppercase;
 	writing-mode: vertical-rl;
 	z-index: 11;
+	background: #fff;
 }
 .content-mid .left-cont{
 	line-height: 60px;
@@ -542,7 +543,92 @@ body{
     color: #666666;
 	background: #fff;
 }
-/**/
+/*第二次上传添加内容*/
+/*历史介绍*/
+.footer-text{
+	padding: 150px 0 0;
+	color: #666;
+}
+.footer-text .footer-title{
+	padding: 0 15px;
+	margin-bottom: 40px;
+}
+.footer-text .footer-title h3{
+	margin: 15px 0 24px;
+	color: #2f2f2f;
+}
+.footer-text .footer-title hr{
+	max-width: 157px;
+    border-color: #C1C1C1;
+    margin-bottom: 30px;
+}
+.footer-text .footer-title  .font-size-p{
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+.footer-text .footer-title p a{
+	color: #c53752;
+}
+.footer-text .panel-group{
+	padding: 0;
+}
+.footer-text .panel-group li{
+	padding: 0 20px 10px;
+	list-style: none;
+	border: none;
+}
+.footer-text .panel-group .panel-default a{
+	text-decoration: none;
+}
+.footer-text .panel-group .panel-default{
+	border: none;
+	padding: 15px 30px 10px;
+}
+.footer-text .panel-group .panel-default > .panel-heading {
+	color: #666;
+	background: #fff;
+	border-color: transparent;
+	border-radius: 0;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+.footer-text .panel-group .panel-default > .panel-heading .panel-title{
+	font-size: 24px;
+	font-weight: bold;
+	position: relative;
+}
+.footer-text .panel-group .panel-default > .panel-heading .panel-title:after{
+    opacity: 0;
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 5px;
+    height: 150%;
+    background-color: #d30037;
+    transition: opacity .12s ease-in-out;
+}
+.footer-text .panel-group .panel-default > .panel-heading .pan-active:after {
+    opacity: 1;
+}
+.footer-text .panel-group .panel-default .panel-body{
+	border: 0;
+	padding: 0 15px 15px;
+	border-bottom: 1px solid #e2e2e2;
+}
+.footer-text .panel-group .panel-default .panel-body p{
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.footer-text .panel-group .panel-default .panel-body p a{
+	color: #c53752;
+}
+.footer-text .panel-group .panel-default .panel-body p a:hover{
+	text-decoration: underline;
+}
+
 @media only screen and (max-width: 992px) {
 	/*导航*/
 	.navbar-avtiu .h3{
