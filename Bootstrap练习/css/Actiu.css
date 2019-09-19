@@ -514,11 +514,7 @@ body{
 	max-width: 326px;
 	height: 416px;
 	float: left;
-	margin-right: 22px;
-}
-.container-banner .carousel-inner .item:nth-child(3), 
-.container-banner .carousel-inner .item:nth-child(6){
-	margin: 0;
+	margin-right: 15px;
 }
 .container-banner .carousel-inner .carousel-caption{
 	right: 0;

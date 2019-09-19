@@ -514,10 +514,19 @@
 	<script src="js/Actiu.js"></script>
 	<script>
 		//三张图轮播
+		var rr = $(".container-banner .active")
+		var arr = Array.prototype.slice.call(rr)
+
 		$(".container-banner .carousel-control.right").click(function(){
-			var arr = $(".container-banner .item")
-			for (var i=0;i<arr.length;i++) {	
-			}	
+			
+			for (var i=0;i<arr.length;i++) {
+				$(arr[i]).removeClass('active')
+				$(arr[i]).siblings().addClass('active')
+				return narr = Array.prototype.slice.call($(".container-banner .active"))
+			}
+			console.log(narr)
+			
+			
 		})
 
 		
