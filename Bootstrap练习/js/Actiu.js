@@ -46,19 +46,19 @@ function scrollTop(){
 
 //按钮切换按钮的图片
 $('.carousel').on('slid.bs.carousel', function (event) {
-			var index = $(".carousel-control").data('index')
-			index++
-			if (index>=4) {
-				index = 0
-			}
-			$(".right img").eq(index).removeClass('hide').siblings('img').addClass('hide')
-			
-			$('.right').data('index',index)
-			
-			$(".left img").eq(index).removeClass('hide').siblings('img').addClass('hide')
-			
-			$('.left').data('index',index)
-			//停止自动轮播
-			$('.carousel').carousel('pause')
-		
-		})
+	var index = $(".carousel-control").data('index')
+	index++
+	if (index>=4) {
+		index = 0
+	}
+	$(".right img").eq(index).removeClass('hide').siblings('img').addClass('hide')
+	
+	$('.right').data('index',index)
+	
+	$(".left img").eq(index).removeClass('hide').siblings('img').addClass('hide')
+	
+	$('.left').data('index',index)
+	//停止自动轮播
+	$('.carousel').carousel('pause')
+
+})
